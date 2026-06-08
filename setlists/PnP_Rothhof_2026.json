@@ -1,0 +1,245 @@
+{
+    "meta": {
+        "band": "8 Ball Band",
+        "event": "Plug & Play Rothhof",
+        "date": "2026-05-02"
+    },
+    "sets": [
+        {
+            "name": "Set 1",
+            "songs": [
+                {
+                    "title": "HEROES",
+                    "key": "D",
+                    "tempo": 115,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Heroes.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "EASY",
+                    "key": "G",
+                    "tempo": 62,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Easy.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "ALWAYS REMEMBER US THIS WAY",
+                    "key": "C",
+                    "temp": 65,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Always Remember Us This Way.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "LITTLE WING",
+                    "key": "G",
+                    "tempo": 139,
+                    "sheets": [
+                    {
+                    "tag": "Bass",
+                    "file": "Little Wing SHEET .pdf"
+                    }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Set 2",
+            "songs": [
+                {
+                    "title": "COME BACK",
+                    "key": "Em",
+                    "tempo": 118,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "ComeBack.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "BLACK MAGIC WOMAN",
+                    "key": "Dm",
+                    "tempo": 124,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "BlackMagicWoman.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "IT´S PROBABLY ME",
+                    "key": "Em",
+                    "temp": 91,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Its probably me.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "SHAPE OF MY HEART",
+                    "key": "F#m",
+                    "tempo": 84,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Shape of my heart.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "DUST IN THE WIND",
+                    "key": "Am",
+                    "tempo": 94,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "S.O.B.",
+                    "key": "Gbm",
+                    "tempo": 110,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "TIME",
+                    "key": "F#m",
+                    "tempo": 121,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Time.pdf"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Attic",
+            "songs": [
+                {
+                    "title": "DON'T CALL US, WE CALL YOU",
+                    "key": "Am",
+                    "tempo": 97,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Don't call us we call you.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "AIN'T NOBODY",
+                    "key": "Dm",
+                    "tempo": 100,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "BACK TO BLACK",
+                    "key": "Dm",
+                    "tempo": 123,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "IRONIC",
+                    "key": "B",
+                    "tempo": 85,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "JOLENE",
+                    "key": "Cm",
+                    "tempo": 103,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "MERCY",
+                    "key": "Gm",
+                    "tempo": 130,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "PUT YOUR RECORDS ON",
+                    "key": "A",
+                    "tempo": 96,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Put your records on.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "ROLLING IN THE DEEP",
+                    "key": "Bm",
+                    "tempo": 105,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Rolling in the deep.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "SMOOTH",
+                    "key": "Am",
+                    "tempo": 116,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Smooth.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "SUPERSTITION",
+                    "key": "Ebm",
+                    "tempo": 101,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Superstition.pdf"
+                        }
+                    ]
+                },
+                {
+                    "title": "TOO CLOSE",
+                    "key": "Bm",
+                    "tempo": 134,
+                    "sheets": [
+                    ]
+                },
+                {
+                    "title": "VALERIE",
+                    "key": "D",
+                    "tempo": 96,
+                    "sheets": [
+                        {
+                            "tag": "Bass",
+                            "file": "Valerie.pdf"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+
+{% block title %}Setlist Manager - Übersicht{% endblock %}
+
+{% block styles %}
+<style>
+    .setlists-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 20px;
+    }
+
+    .setlists-header h2 {
+        color: #333;
+        font-size: 20px;
+    }
+
+    .setlists-count {
+        background: #667eea;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .setlists-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 20px;
+    }
+
+    .setlist-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .setlist-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-color: #667eea;
+    }
+
+    .setlist-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 15px;
+    }
+
+    .setlist-title {
+        color: #333;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        flex: 1;
+    }
+
+    .setlist-date-badge {
+        background: #f0f0f0;
+        color: #666;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+
+    .setlist-band {
+        color: #667eea;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .setlist-event {
+        color: #666;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .setlist-meta {
+        display: flex;
+        gap: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #f0f0f0;
+        font-size: 12px;
+        color: #999;
+    }
+
+    .setlist-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .setlist-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .tag-selector {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        cursor: pointer;
+        transition: border-color 0.2s ease;
+    }
+
+    .tag-selector:hover {
+        border-color: #667eea;
+    }
+
+    .tag-selector:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .btn {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-primary {
+        background: #667eea;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: #5568d3;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-primary:active {
+        transform: translateY(0);
+    }
+
+    .btn-primary.loading {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .empty-state-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .empty-state-title {
+        color: #333;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .empty-state-text {
+        color: #999;
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        .setlists-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .setlist-card-header {
+            flex-direction: column;
+        }
+
+        .setlist-date-badge {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="setlists-header">
+    <h2>🎵 Setlists</h2>
+    <span class="setlists-count">{{ total_setlists }} {% if total_setlists == 1 %}Setlist{% else %}Setlists{% endif %}</span>
+</div>
+
+{% if setlists %}
+    <div class="setlists-grid">
+        {% for setlist in setlists %}
+        <div class="setlist-card" onclick="location.href='#';">
+            <div class="setlist-card-header">
+                <h3 class="setlist-title">{{ setlist.event }}</h3>
+                <span class="setlist-date-badge">{{ setlist.date }}</span>
+            </div>
+            
+            <div class="setlist-band">
+                🎸 {{ setlist.band }}
+            </div>
+            
+            <div class="setlist-event">
+                <strong>Event:</strong> {{ setlist.event }}
+            </div>
+
+            <div class="setlist-meta">
+                <div class="setlist-meta-item">
+                    <span>📂</span>
+                    <span>{{ setlist.filename }}.json</span>
+                </div>
+                <div class="setlist-meta-item">
+                    <span>🎼</span>
+                    <span>{{ setlist.sets_count }} {% if setlist.sets_count == 1 %}Set{% else %}Sets{% endif %}</span>
+                </div>
+            </div>
+
+            <div class="setlist-actions">
+                {% if available_tags %}
+                <select class="tag-selector" id="tag-selector-{{ loop.index }}">
+                    <option value="">Alle Sheets</option>
+                    {% for tag in available_tags %}
+                    <option value="{{ tag }}">{{ tag }}</option>
+                    {% endfor %}
+                </select>
+                {% endif %}
+                <button class="btn btn-primary" onclick="generatePDF(event, '{{ setlist.filename }}', document.getElementById('tag-selector-{{ loop.index }}'))">
+                    📥 PDF generieren
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <div class="empty-state-icon">📋</div>
+        <div class="empty-state-title">Keine Setlists vorhanden</div>
+        <div class="empty-state-text">Es wurden noch keine Setlist-Dateien gefunden. Bitte fügen Sie JSON-Dateien im Ordner "setlists" hinzu.</div>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    async function generatePDF(event, setlistName, tagSelector = null) {
+        event.stopPropagation(); // Verhindert Navigation zur Detail-Seite
+        
+        const button = event.target.closest('.btn-primary');
+        const originalText = button.innerHTML;
+        
+        try {
+            // Button in Laden-Zustand versetzen
+            button.classList.add('loading');
+            button.disabled = true;
+            button.innerHTML = '⏳ Generiere...';
+            
+            // URL zusammenstellen
+            let url = `/generate-pdf/${setlistName}`;
+            
+            // Tag hinzufügen, wenn vorhanden und ausgewählt
+            if (tagSelector && tagSelector.value) {
+                url += `?sheet_tag=${encodeURIComponent(tagSelector.value)}`;
+            }
+            
+            // PDF generieren und herunterladen
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.error || 'Fehler bei der PDF-Generierung');
+            }
+            
+            // PDF-Datei herunterladen
+            const blob = await response.blob();
+            const urlObj = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = urlObj;
+            link.download = `${setlistName}.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            window.URL.revokeObjectURL(urlObj);
+            document.body.removeChild(link);
+            
+            button.innerHTML = '✅ PDF heruntergeladen';
+            
+        } catch (error) {
+            console.error('Fehler:', error);
+            button.innerHTML = '❌ Fehler';
+            alert('Fehler bei der PDF-Generierung: ' + error.message);
+        } finally {
+            setTimeout(() => {
+                button.classList.remove('loading');
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }, 2000);
+        }
+    }
+</script>
+{% endblock %}
